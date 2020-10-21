@@ -1,0 +1,50 @@
+{
+  "name": "arta",
+  "version": "0.0.1",
+  "description": "fill your graph with art",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm t",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "pretest": "npm run lint",
+    "test": "jest --config jestconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvargas92495/roam-client.git"
+  },
+  "keywords": [
+    "Roam",
+    "art",
+    "arta"
+  ],
+  "author": "scottrblock <scottrblock@gmail.com>",
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@types/jest": "^26.0.14",
+    "jest": "^26.4.2",
+    "jest-when": "^2.7.2",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@testing-library/dom": "^7.24.4",
+    "@testing-library/user-event": "^12.1.7",
+    "axios": "^0.20.0",
+    "date-fns": "^2.16.1"
+  }
+}
