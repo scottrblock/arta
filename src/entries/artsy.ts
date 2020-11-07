@@ -1,6 +1,7 @@
 import axios from "axios";
 import { da } from "date-fns/locale";
-import { Artist, Resource } from "../src/types"
+import { addButtonListener, pushBullets } from 'roam-client';
+import { Artist, Resource } from "../../src/types"
 
 const apiClient = axios.create({
   baseURL: 'https://api.artsy.net/api',
@@ -23,7 +24,7 @@ const fetchArtist = async (artist_url: string, token: string): Promise<Artist> =
     .catch((error) => Promise.reject(new Error(error)))
 )
 
-export const searchArtist = async (query: string, token: string): Promise<Artist> => {
+const searchArtist = async (query: string, token: string): Promise<Artist> => {
   return await apiClient.get(`/search?q=/${query}+more:pagemap:metatags-og_type:artist`, {
     headers: { 'X-Xapp-Token': token }
   })
@@ -53,10 +54,10 @@ const artistData = (artist: Artist): string[]=> {
   ]
 }
 
-(async () => {
+addButtonListener('gather', async (a, b) => {
   if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
 
-  const artistName = 'Andy Wwarhol' // Will need to get from input
+  const artistName = document.title
   console.log(`Finding info for ${artistName}`)
 
   const token: string = await fetchToken()
@@ -64,6 +65,5 @@ const artistData = (artist: Artist): string[]=> {
   console.log(Object.keys(artist._links))
 
   console.log(artistData(artist).join("\n"))
-  // console.log(artist)
-
- })()
+  pushBullets(artistData(artist))
+})
