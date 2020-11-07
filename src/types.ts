@@ -5,15 +5,9 @@ enum ImageVersion {
     tall
 }
 
-export type Link = {
-    name: string,
-    href: string
-}
-
 export type Resource = {
     type: string
 }
-
 
 export type Artist = {
     id: string,
@@ -31,6 +25,5 @@ export type Artist = {
     location: string,
     nationality: string,
     image_versions: ImageVersion[],
-
-    "_links": Link[]
+    _links: any
 }
