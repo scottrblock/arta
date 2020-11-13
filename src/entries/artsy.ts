@@ -55,7 +55,6 @@ const artistData = (artist: Artist): string[]=> {
 }
 
 addButtonListener('arta', async (a, b) => {
-  if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
   console.log('addButtonListener', [a, b])
 
   const artistName = document.title
