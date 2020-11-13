@@ -33,7 +33,7 @@
     "jest": "^26.4.2",
     "jest-when": "^2.7.2",
     "prettier": "^2.1.2",
-    "roam-client": "^1.21.1",
+    "roam-client": "^1.22.2",
     "ts-jest": "^26.4.1",
     "ts-loader": "^8.0.10",
     "ts-node": "^9.0.0",

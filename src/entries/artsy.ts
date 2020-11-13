@@ -1,6 +1,6 @@
 import axios from "axios";
 import { da } from "date-fns/locale";
-import { addButtonListener, pushBullets } from 'roam-client';
+import { addButtonListener, pushBullets, WindowClient  } from 'roam-client';
 import { Artist, Resource } from "../../src/types"
 
 const apiClient = axios.create({
@@ -54,8 +54,9 @@ const artistData = (artist: Artist): string[]=> {
   ]
 }
 
-addButtonListener('gather', async (a, b) => {
+addButtonListener('arta', async (a, b) => {
   if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
+  console.log('addButtonListener', [a, b])
 
   const artistName = document.title
   console.log(`Finding info for ${artistName}`)
