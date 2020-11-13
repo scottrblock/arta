@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc && webpack",
+    "build:lambda": "webpack --config ./webpack.lambda.config.js",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -29,7 +30,9 @@
   "license": "CC-BY-SA-4.0",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
+    "@types/aws-lambda": "^8.10.64",
     "@types/jest": "^26.0.14",
+    "dotenv-webpack": "^2.0.0",
     "jest": "^26.4.2",
     "jest-when": "^2.7.2",
     "prettier": "^2.1.2",
@@ -49,6 +52,7 @@
   "dependencies": {
     "@testing-library/dom": "^7.24.4",
     "@testing-library/user-event": "^12.1.7",
+    "aws-lambda": "^1.0.6",
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0"
