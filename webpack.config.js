@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const extensions = fs.readdirSync("./src/entries/");
 const entry = Object.fromEntries(
@@ -25,8 +26,13 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimizer: [
+    new TerserPlugin({
+      extractComments: /@extract/i,
+    })]
+  },
   performance: {
-    hints: "error",
     maxEntrypointSize: 280000,
     maxAssetSize: 280000,
   },
