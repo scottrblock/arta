@@ -6,15 +6,15 @@ import { Artist, Resource } from "../../src/types"
 const artistData = (artist: Artist): string[]=> {
   const hometown = artist.hometown.split(",").map((t) => `[[${t.trim()}]]`).join(", ")
   return [
-    `* url:: ${artist._links['permalink']['href']}`,
-    `* thumbnail::`,
-    `  * ![](${artist._links['thumbnail']['href']})`,
-    `* bio::`,
-    `  * ${artist.biography}`,
-    `* birth year:: ${artist.birthday}`,
-    `* death year:: ${artist.deathday}`,
-    `* hometown:: ${hometown}`,
-    `* nationality:: [[${artist.nationality}]]`,
+    `url:: ${artist._links['permalink']['href']}`,
+    `thumbnail::`,
+    `. ![](${artist._links['thumbnail']['href']})`,
+    `bio::`,
+    `  ${artist.biography}`,
+    `birth year:: ${artist.birthday}`,
+    `death year:: ${artist.deathday}`,
+    `hometown:: ${hometown}`,
+    `nationality:: [[${artist.nationality}]]`,
   ]
 }
 
